@@ -4,17 +4,26 @@ using namespace std;
 int main() {
 
     int A[9][9];
+
+    //9*9タイルの1~9の数字を読み取る
     for(int i=0;i<9;i++){
         for(int j=0;j<9;j++){
             cin >> A[i][j];
         }
     }
 
+    //縦の合計値
     int ver_sum[9];
+
+    //横の合計値
     int wid_sum[9];
+
+    //3*3タイルの中の合計値
     int box_sum[9];
     for(int i=0;i<9;i++){
         for(int j=0;j<9;j++){
+
+            //各合計値に値を追加;
             ver_sum[i] += A[i][j];
             wid_sum[j] += A[i][j];
             
@@ -40,6 +49,7 @@ int main() {
         }
     }
 
+    //合計値が1+2+3+4+5+6+7+8+9=45 になっているか
     for(int i=0;i<9;i++){
         if(ver_sum[i]!=45 || wid_sum[i]!=45 || box_sum[i]!=45){
             cout << "No" << endl;
