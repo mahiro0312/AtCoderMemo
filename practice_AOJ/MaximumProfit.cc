@@ -5,6 +5,7 @@
 using namespace std;
 static const int MAX = 200000;
 
+//for for maxvとR[j]とR[i]の大きい方とするとO(n^2)となり計算量が膨大になる
 int main(){
     int n;
     int R[MAX];
