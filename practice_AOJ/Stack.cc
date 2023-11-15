@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int top, S[1000];
+
+/**
+ * @brief スタックトップにxを入れる
+ * 
+ * @param x 
+ */
+void push(int x){
+    /*topに先に加算して新しく入れる、後置インクリメントはだめ*/
+    S[++top] = x;
+}
+
+/**
+ * @brief スタックトップの値を取り出す
+ * 
+ * @return int 
+ */
+int pop(){
+    top--;
+
+    /*topの要素を返す*/
+    return S[top + 1];
+}
+
+int main(){
+    int a, b;
+    top = 0;
+    char s[100];
+
+    while(scanf("%s", s) != EOF){
+        if(s[0] == '+'){
+            a = pop();
+            b = pop();
+            push(a + b);
+        }else if(s[0] == '-'){
+
+            /*先入後出しなのでaとbを入れ替える*/
+            b = pop();
+            a = pop();
+            push(a - b);
+        }else if(s[0] == '*'){
+            a = pop();
+            b = pop();
+            push(a * b);
+        }else {
+            /*atoi() 文字列の数字をint型に変換できる*/
+            push(atoi(s));
+        }
+    }
+    printf("%d\n", pop());
+
+    return 0;
+}
