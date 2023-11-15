@@ -5,7 +5,7 @@ using namespace std;
 int main(void)
 {
 
-  string s, ans;
+string s, ans;
   //文字列の取得
   cin >> s;
   
@@ -19,6 +19,7 @@ int main(void)
         //ABCの部分だけ消去 erase()
         ans.erase(ans.end()-3, ans.end());
     }
+  }
   cout << ans << endl;
   
   return 0;
